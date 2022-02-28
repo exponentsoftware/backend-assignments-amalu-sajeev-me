@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { addTodo } from "./todo.controller.js";
+import { addTodo, allTodos, todoDetails } from "./todo.controller.js";
 
 const todoRouter = Router();
 
-todoRouter.post("/", addTodo);
+todoRouter.route("/").post(addTodo).get(allTodos);
+todoRouter.route("/:todoID").get(todoDetails);
 
 export { todoRouter };

@@ -19,4 +19,17 @@ async function todoDetails(req, res) {
   const todo = await Todo.findById(todoID);
   res.send(todo);
 }
-export { addTodo, allTodos, todoDetails };
+
+async function updateTodo(req, res) {
+  const { todoID } = req.params;
+  const { title, done } = req.body;
+  // Todo.findByIdAndUpdate()
+  const todo = await Todo.findById(todoID);
+  todo.title = title;
+  todo.done = done;
+  await todo.save();
+  res.send("todo updated");
+  console.log(todo);
+}
+
+export { addTodo, allTodos, todoDetails, updateTodo };

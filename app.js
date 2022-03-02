@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
 import passport from "passport";
@@ -11,19 +12,6 @@ app.use(express.json(), express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use("/todo", todoRouter);
 app.use("/user", userRouter);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 mongoose.connect(DB_STRING).then(() => {
   //

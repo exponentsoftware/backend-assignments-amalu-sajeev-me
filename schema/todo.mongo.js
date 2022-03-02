@@ -6,7 +6,10 @@ const todoSchema = new Schema({
   title: String,
   createdAt: String,
   updatedAt: String,
-  category: String,
+  category: {
+    type: String,
+    enum: ["work", "hobby", "task"],
+  },
   done: Boolean,
 });
 todoSchema.pre("save", function () {

@@ -1,13 +1,16 @@
 import express from "express";
 import mongoose from "mongoose";
-import { todoRouter } from "./todo.router.js";
+import passport from "passport";
+import { todoRouter } from "./routes/todo.router.js";
+import { userRouter } from "./routes/user.router.js";
 
 const app = express();
 const DB_STRING = `mongodb://127.0.0.1:27017/todo`;
 
 app.use(express.json(), express.urlencoded({ extended: true }));
-
+app.use(passport.initialize());
 app.use("/todo", todoRouter);
+app.use("/user", userRouter);
 
 
 

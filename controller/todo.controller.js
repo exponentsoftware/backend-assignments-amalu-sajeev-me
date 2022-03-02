@@ -1,4 +1,4 @@
-import { Todo } from "./todo.mongo.js";
+import { Todo } from "../schema/todo.mongo.js";
 
 async function addTodo(req, res) {
   //

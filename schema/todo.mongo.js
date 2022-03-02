@@ -23,4 +23,4 @@ function createdAtPlugin() {}
 
 const Todo = model("Todo", todoSchema);
 
-export { Todo };
+export { Todo, todoSchema };

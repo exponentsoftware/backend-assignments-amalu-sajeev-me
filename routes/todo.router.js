@@ -17,8 +17,8 @@ todoRouter
   .get(passport.authenticate("jwt", { session: false }), allTodos);
 todoRouter
   .route("/:todoID")
-  .get(todoDetails)
-  .patch(updateTodo)
-  .delete(removeTodo);
+  .get(passport.authenticate("jwt", { session: false }), todoDetails)
+  .patch(passport.authenticate("jwt", { session: false }), updateTodo)
+  .delete(passport.authenticate("jwt", { session: false }), removeTodo);
 
 export { todoRouter };

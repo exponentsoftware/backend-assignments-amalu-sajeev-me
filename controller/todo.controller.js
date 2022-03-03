@@ -10,8 +10,9 @@ async function addTodo(req, res) {
 }
 
 async function allTodos(req, res) {
-  console.log(req.user);
-  const todos = await Todo.find({});
+  const { username, role } = req.user;
+  const todos =
+    role === "user" ? await Todo.find({ username }) : await Todo.find({});
   res.send(todos);
 }
 
